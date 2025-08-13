@@ -39,7 +39,7 @@ const meta = computed(() => {
             class="mb-2.5"
             >
                 <label v-if="spec.editable" :for="prop"
-                  class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
+                  class="block mb-2 text-sm font-semibold text-gray-700"
                 >
                 {{ spec.label }}
                 </label>

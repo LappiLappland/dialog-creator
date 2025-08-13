@@ -33,26 +33,23 @@ function rememberChange(oldIndex: number | undefined, newIndex: number | undefin
             <div
             v-for="item in store.dialogItemsArray"
             :key="item.id"
-            class="border rounded-lg p-3 mb-2 dark:bg-gray-800 transition-all duration-200 cursor-move group"
+            class="border rounded-lg p-3 mb-2transition-all duration-200 cursor-move group"
             :class="[
-                'border rounded-lg p-3 mb-2 dark:bg-gray-800 transition-all duration-200 cursor-move group',
+                'border rounded-lg p-3 mb-2transition-all duration-200 cursor-move group',
                 store.selectedItem === item.id
-                    ? 'border-blue-500 dark:border-blue-400 dark:bg-blue-900/20 shadow-md'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 hover:dark:border-blue-200 hover:shadow-md',
+                    ? 'border-blue-500shadow-md'
+                    : 'border-gray-200 hover:border-blue-300 hover:shadow-md',
                 store.isClassNameUnique(item.className)
                     ? 'bg-white'
-                    : 'bg-red-100 dark:bg-red-900/30 border-red-200 dark:border-red-700'
+                    : 'bg-red-100 border-red-200'
             ]"
             @click="() => store.setSelectedItem(item.id)"
             >
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-2">
-                    <span class="text-sm font-medium text-gray-900 dark:text-white">
+                    <span class="text-sm font-medium text-gray-900">
                         {{ item.className }}
                     </span>
-                    <!-- <span class="text-xs text-gray-500 dark:text-gray-400">
-                        (#{{ item.id }})
-                    </span> -->
                     </div>
                     <div class="flex items-center">
                         <button class="text-gray-400 hover:text-red-300 cursor-pointer transition-colors"
