@@ -1,7 +1,7 @@
 # Lappi's Dialog Editor  
 *Visual GUI Builder for Arma: Cold War Assault (Operation Flashpoint)*  
 
-[![Demo](https://img.shields.io/badge/Web-Live_Editor-22C55E?style=for-the-badge&logo=vercel)](https://demo.yoursite.com) 
+[![Demo](https://img.shields.io/badge/Web-Live_Editor-22C55E?style=for-the-badge&logo=vercel)](https://lappilappland.github.io/dialog-editor/) 
 ![Tool - ARMA CWA](https://img.shields.io/badge/Tool-ARMA_CWA_GUI_Editor-2B337D?style=for-the-badge&logo=bohemiainteractive&logoColor=white)
 
 ![Preview](https://github.com/user-attachments/assets/c6c2152f-87d0-49e2-8a1d-36977173df0d)
