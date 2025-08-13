@@ -8,7 +8,7 @@
 
 > Create, import and export Arma Cold War Assault GUIs (dialogs) live in editor without touching config files. Right in your browser!
 
-[Open page to start editing](https://lappilappland.github.io/dialog-creator/)
+[Open page to start editing](https://lappilappland.github.io/dialog-editor/)
 
 ---
 
@@ -73,7 +73,7 @@ Report dialog code
 ---
 
 ## 🚀 Getting Started  
-1. Visit the [Editor page](https://lappilappland.github.io/dialog-creator/)
+1. Visit the [Editor page](https://lappilappland.github.io/dialog-editor/)
 2. Start from scratch or **import existing dialog**
 3. Use buttons on top to place new elements
 4. Edit element properties using right window
