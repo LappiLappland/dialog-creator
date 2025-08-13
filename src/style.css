@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'AudreyShand';
+  src: url('./assets/fonts/audreyshand.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CourierCyrPS';
+  src: url('./assets/fonts/couriercyrps.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('./assets/fonts/garamond.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Steelfish';
+  src: url('./assets/fonts/steelfish.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tahoma';
+  src: url('./assets/fonts/tahoma.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-audreyshand {
+  font-family: 'AudreyShand', sans-serif;
+}
+
+.font-couriercyrps {
+  font-family: 'CourierCyrPS', monospace;
+}
+
+.font-garamond {
+  font-family: 'Garamond', Georgia, serif;
+}
+
+.font-steelfish {
+  font-family: 'Steelfish', sans-serif;
+}
+
+.font-tahoma {
+  font-family: 'Tahoma', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

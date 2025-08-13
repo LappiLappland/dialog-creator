@@ -1,0 +1,88 @@
+<script setup lang="ts">
+
+import { VueDraggable } from 'vue-draggable-plus';
+import { useDialogStore } from '../../stores/dialogStore';
+import CommandDispatcher from '../../classes/CommandDispatcher';
+import SwapOrderCmd from '../../classes/commands/SwapOrderCmd';
+
+const store = useDialogStore();
+
+function deleteDialog(id: string) {
+    store.deleteItem(id);
+}
+
+function rememberChange(oldIndex: number | undefined, newIndex: number | undefined) {
+    if (oldIndex !== undefined && newIndex !== undefined) {
+        CommandDispatcher.add(new SwapOrderCmd(store, oldIndex, newIndex));
+    }
+}
+
+</script>
+
+<template>
+    <div
+    class="h-full flex flex-col"
+    >
+        <h2 class="text-lg font-semibold text-gray-800 mb-4 text-center">
+            Items
+        </h2>
+        <VueDraggable ref="el" v-model="store.dialogItemsArray"
+        @change="rememberChange($event.oldIndex, $event.newIndex)"
+        class="overflow-auto grow"
+        >
+            <div
+            v-for="item in store.dialogItemsArray"
+            :key="item.id"
+            class="border rounded-lg p-3 mb-2 dark:bg-gray-800 transition-all duration-200 cursor-move group"
+            :class="[
+                'border rounded-lg p-3 mb-2 dark:bg-gray-800 transition-all duration-200 cursor-move group',
+                store.selectedItem === item.id
+                    ? 'border-blue-500 dark:border-blue-400 dark:bg-blue-900/20 shadow-md'
+                    : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 hover:dark:border-blue-200 hover:shadow-md',
+                store.isClassNameUnique(item.className)
+                    ? 'bg-white'
+                    : 'bg-red-100 dark:bg-red-900/30 border-red-200 dark:border-red-700'
+            ]"
+            @click="() => store.setSelectedItem(item.id)"
+            >
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                    <span class="text-sm font-medium text-gray-900 dark:text-white">
+                        {{ item.className }}
+                    </span>
+                    <!-- <span class="text-xs text-gray-500 dark:text-gray-400">
+                        (#{{ item.id }})
+                    </span> -->
+                    </div>
+                    <div class="flex items-center">
+                        <button class="text-gray-400 hover:text-red-300 cursor-pointer transition-colors"
+                        @click="deleteDialog(item.id)"
+                        >
+                            <svg class="w-3 h-3" fill="currentColor" stroke="currentColor"
+                            height="24px" width="24px"
+                            viewBox="0 0 512 512"
+                            >
+                                <path d="M439.114,69.747c0,0,2.977,2.1-43.339-11.966c-41.52-12.604-80.795-15.309-80.795-15.309l-2.722-19.297
+                                    C310.387,9.857,299.484,0,286.642,0h-30.651h-30.651c-12.825,0-23.729,9.857-25.616,23.175l-2.722,19.297
+                                    c0,0-39.258,2.705-80.778,15.309C69.891,71.848,72.868,69.747,72.868,69.747c-10.324,2.849-17.536,12.655-17.536,23.864v16.695
+                                    h200.66h200.677V93.611C456.669,82.402,449.456,72.596,439.114,69.747z"/>
+                                <path d="M88.593,464.731C90.957,491.486,113.367,512,140.234,512h231.524c26.857,0,49.276-20.514,51.64-47.269
+                                    l25.642-327.21H62.952L88.593,464.731z M342.016,209.904c0.51-8.402,7.731-14.807,16.134-14.296
+                                    c8.402,0.51,14.798,7.731,14.296,16.134l-14.492,239.493c-0.51,8.402-7.731,14.798-16.133,14.288
+                                    c-8.403-0.51-14.806-7.722-14.296-16.125L342.016,209.904z M240.751,210.823c0-8.42,6.821-15.241,15.24-15.241
+                                    c8.42,0,15.24,6.821,15.24,15.241v239.492c0,8.42-6.821,15.24-15.24,15.24c-8.42,0-15.24-6.821-15.24-15.24V210.823z
+                                    M153.833,195.608c8.403-0.51,15.624,5.894,16.134,14.296l14.509,239.492c0.51,8.403-5.894,15.615-14.296,16.125
+                                    c-8.403,0.51-15.624-5.886-16.134-14.288l-14.509-239.493C139.026,203.339,145.43,196.118,153.833,195.608z"/>
+                                </svg>
+                        </button>
+                        <div class="p-0.5 text-gray-400 ">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </VueDraggable>
+    </div>
+</template>
