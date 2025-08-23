@@ -82,4 +82,9 @@ function handleInput(e: Event, type: keyof DialogStyle) {
 .style-input__option {
     color: rgb(var(--text-on-main));
 }
+
+.style-input__option:checked {
+    background-color: rgb(var(--bg-button));
+    color: rgb(var(--text-on-button));
+}
 </style>

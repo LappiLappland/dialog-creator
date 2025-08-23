@@ -42,4 +42,9 @@ defineEmits<{ 'update:modelValue': [v: string] }>();
 .select-input__option {
     color: rgb(var(--text-on-main));
 }
+
+.select-input__option:checked {
+    background-color: rgb(var(--bg-button));
+    color: rgb(var(--text-on-button));
+}
 </style>
