@@ -1,51 +1,35 @@
-@import "tailwindcss";
+@import "./assets/css/preflight.css";
 
-@font-face {
-  font-family: 'AudreyShand';
-  src: url('./assets/fonts/audreyshand.ttf') format('truetype');
-  font-display: swap;
+@import "./assets/css/fonts.css";
+
+:root {
+    --bg-main: 213, 214, 211;
+    --bg-secondary: 197, 195, 187;
+    --bg-error: 241 241 241;
+    --bg-hover: 133, 141, 150;
+    --bg-button: 68, 56, 80;
+
+    --text-on-main: 23, 33, 33;
+    --text-on-main-secondary: 133, 141, 150;
+    --text-on-button: 255, 255, 255;
+    --text-on-error: 185, 28, 28;
+
+    --border-main: 133, 141, 150;
+    --border-hover: 68, 56, 80;
+    --border-selected: 68, 56, 80;
+    --border-error: 254, 202, 202;
+
+    --fw-thin: 100;
+    --fw-extra-light: 200;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+    --fw-black: 900;
 }
 
-@font-face {
-  font-family: 'CourierCyrPS';
-  src: url('./assets/fonts/couriercyrps.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Garamond';
-  src: url('./assets/fonts/garamond.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Steelfish';
-  src: url('./assets/fonts/steelfish.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Tahoma';
-  src: url('./assets/fonts/tahoma.ttf') format('truetype');
-  font-display: swap;
-}
-
-.font-audreyshand {
-  font-family: 'AudreyShand', sans-serif;
-}
-
-.font-couriercyrps {
-  font-family: 'CourierCyrPS', monospace;
-}
-
-.font-garamond {
-  font-family: 'Garamond', Georgia, serif;
-}
-
-.font-steelfish {
-  font-family: 'Steelfish', sans-serif;
-}
-
-.font-tahoma {
-  font-family: 'Tahoma', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+    font-family: 'Inter', sans-serif;;
 }

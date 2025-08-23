@@ -2,6 +2,7 @@
 import { exportToExt } from '../utils/export';
 import { useDialogStore } from '../stores/dialogStore';
 import { computed, onMounted, onUnmounted, useTemplateRef } from 'vue';
+import 'highlight.js/styles/vs2015.css';
 
 const store = useDialogStore();
 
@@ -39,13 +40,10 @@ onUnmounted(() => {
 <template>
     <div
     ref="container"
-    class="relative overflow-hidden bg-slate-400 border-2 border-gray-300 shadow-lg"
+    class="code-viewer"
     >
-        <!-- <pre class="overflow-auto h-full">
-{{ codeText }}
-        </pre> -->
         <highlightjs
-        class="h-full overflow-auto"
+        class="code-viewer__content"
         lang="cpp"
         :code="codeText"
         />
@@ -53,7 +51,20 @@ onUnmounted(() => {
 </template>
 
 <style>
-    .hljs {
-        height: 100%;
-    }
+.code-viewer {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgb(var(--border-main));
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.code-viewer__content {
+    height: 100%;
+    overflow: auto;
+}
+
+.hljs {
+    height: 100%;
+}
 </style>

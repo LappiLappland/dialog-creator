@@ -41,7 +41,7 @@ const rowHeightInPX = computed(() => {
 </script>
 
 <template>
-    <div class="h-full relative text-nowrap bg-blend-multiply overflow-hidden"
+    <div class="list-box"
     :class="[props.dialog.extraClass]"
     :style="[{
         'background-color': 'transparent',
@@ -51,7 +51,7 @@ const rowHeightInPX = computed(() => {
         <div
         v-for="num in amount"
         :key="rowHeightInPX + '_' + num"
-        class="border-b relative text-nowrap"
+        class="list-box__row"
         :style="{
             height: rowHeightInPX + 'px',
             'background-color': num !== 1 ? undefined : props.dialog.colorText,
@@ -70,3 +70,20 @@ const rowHeightInPX = computed(() => {
         </div>
     </div>
 </template>
+
+<style>
+.list-box {
+    height: 100%;
+    position: relative;
+    white-space: nowrap;
+    background-blend-mode: multiply;
+    overflow: hidden;
+    user-select: none;
+}
+
+.list-box__row {
+    border-bottom: 1px solid;
+    position: relative;
+    white-space: nowrap;
+}
+</style>

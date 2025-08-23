@@ -56,10 +56,10 @@ function addDialogItem(action: ButtonAction) {
 </script>
 
 <template>
-    <div class="flex flex-row flex-wrap gap-1">
+    <div class="top-bar">
         <button
         v-for="(item, index) in buttonsList"
-        class="cursor-pointer px-3 py-1.5 mr-1 text-xs border border-gray-300 rounded hover:bg-white active:bg-gray-50 transition-colors shadow-sm"
+        class="top-bar__button"
         :title="item.title"
         :key="index"
         @click="() => addDialogItem(item.action)"
@@ -68,3 +68,38 @@ function addDialogItem(action: ButtonAction) {
         </button>
     </div>
 </template>
+
+<style>
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding: 8px;
+    color: rgb(var(--text-on-main));
+    background-color: rgb(var(--bg-secondary));
+    border-bottom: 1px solid rgb(var(--border-main));
+}
+
+.top-bar__button {
+    cursor: pointer;
+    padding-inline: 0.75rem;
+    padding-block: 0.375rem;
+    margin-right: 0.25rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid rgb(var(--border-main));
+    background-color: rgb(var(--bg-main));
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.top-bar__button:hover {
+    background-color: rgba(var(--bg-main), 0.75);
+}
+
+.top-bar__button:focus {
+    background-color: rgba(var(--bg-main), 0.65);
+}
+
+</style>

@@ -63,7 +63,7 @@ onUnmounted(() => {
 <template>
     <div
     ref="container"
-    class="relative overflow-hidden border-2 border-gray-300 shadow-lg"
+    class="visual-window"
     :style="{
       'background-color': store.mainDialog.debugBackground,
     }"
@@ -71,7 +71,6 @@ onUnmounted(() => {
     >
         <Draggable
             v-for="item in store.dialogItemsArray"
-            class="absolute select-none overflow-hidden"
             :dialogItem="item"
             :key="item.id"
             @activated="preventBlur = true"
@@ -81,3 +80,14 @@ onUnmounted(() => {
         </Draggable>
     </div>
 </template>
+
+<style>
+.visual-window {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgb(var(--border-main));
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    width: 100%;
+}
+</style>

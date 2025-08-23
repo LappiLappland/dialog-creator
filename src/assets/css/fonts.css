@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'AudreyShand';
+  src: url('../fonts/audreyshand.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CourierCyrPS';
+  src: url('../fonts/couriercyrps.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('../fonts/garamond.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Steelfish';
+  src: url('../fonts/steelfish.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tahoma';
+  src: url('../fonts/tahoma.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+.font-audreyshand {
+  font-family: 'AudreyShand', sans-serif;
+}
+
+.font-couriercyrps {
+  font-family: 'CourierCyrPS', monospace;
+}
+
+.font-garamond {
+  font-family: 'Garamond', Georgia, serif;
+}
+
+.font-steelfish {
+  font-family: 'Steelfish', sans-serif;
+}
+
+.font-tahoma {
+  font-family: 'Tahoma', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

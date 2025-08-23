@@ -32,22 +32,52 @@ const handleDrop = (event: DragEvent) => {
 
 <template>
   <div
-    class="flex items-center justify-center min-h-[200px] border-2 border-dashed border-gray-300 rounded-lg cursor-pointer transition-colors"
-    :class="{ 'bg-blue-50 border-blue-400': isDragging }"
+    class="file-upload"
+    :class="{ 'file-upload_dragging': isDragging }"
     @click="triggerFileInput"
     @dragover.prevent="isDragging = true"
     @dragenter.prevent="isDragging = true"
     @dragleave.prevent="isDragging = false"
     @drop.prevent="handleDrop"
   >
-    <p class="text-gray-500 text-center px-4">
+    <p class="file-upload__text">
       {{ file ? file.name : 'Click or drag a file here to upload' }}
     </p>
     <input
       ref="fileInput"
       type="file"
-      class="hidden"
+      class="file-upload__input"
       @change="handleFileSelect"
     />
   </div>
 </template>
+
+<style>
+.file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    border: 2px dashed rgb(var(--border-main));
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 200ms ease, border-color 200ms ease;
+    background-color: transparent;
+}
+
+.file-upload_dragging {
+    background-color: rgb(var(--bg-hover));
+    border-color: rgb(var(--border-hover));
+}
+
+.file-upload__text {
+    color: rgb(var(--text-on-main-secondary));
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.file-upload__input {
+    display: none;
+}
+</style>

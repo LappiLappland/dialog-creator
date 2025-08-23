@@ -4,7 +4,6 @@ import App from './App.vue';
 import 'vue3-colorpicker/style.css';
 import { createPinia } from 'pinia';
 import Vue3ColorPicker from 'vue3-colorpicker';
-import 'highlight.js/styles/stackoverflow-light.css';
 import 'vue-final-modal/style.css';
 import hljs from 'highlight.js/lib/core';
 import cpp from 'highlight.js/lib/languages/cpp';

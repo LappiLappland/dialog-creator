@@ -135,38 +135,38 @@ const horz = computed(() => {
     width="100%"
     height="100%"
   >
-    <g :stroke="strokeColor" stroke-width="0.002" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <!-- Vertical -->
-      <template v-if="dialog.style.position === StylePosition.VERTICAL">
-        <!-- top spin -->
-        <line v-for="(l, i) in vert.topSpin" :key="`v-ts-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
-        <!-- bottom spin -->
-        <line v-for="(l, i) in vert.bottomSpin" :key="`v-bs-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
-        <!-- background line -->
-        <line :x1="vert.bg.x1" :y1="vert.bg.y1" :x2="vert.bg.x2" :y2="vert.bg.y2" />
-        <!-- ticks -->
-        <line v-for="(l, i) in vert.tickLines" :key="`v-tick-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
-        <!-- thumb -->
-        <line :x1="vert.thumb.x1" :y1="vert.thumb.y1" :x2="vert.thumb.x2" :y2="vert.thumb.y2" />
-        <line :x1="vert.thumb.x2" :y1="vert.thumb.y2" :x2="vert.thumb.x3" :y2="vert.thumb.y3" />
-        <line :x1="vert.thumb.x3" :y1="vert.thumb.y3" :x2="vert.thumb.x1" :y2="vert.thumb.y1" />
-      </template>
+        <g :stroke="strokeColor" stroke-width="0.002" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Vertical -->
+            <template v-if="dialog.style.position === StylePosition.VERTICAL">
+                <!-- top spin -->
+                <line v-for="(l, i) in vert.topSpin" :key="`v-ts-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
+                <!-- bottom spin -->
+                <line v-for="(l, i) in vert.bottomSpin" :key="`v-bs-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
+                <!-- background line -->
+                <line :x1="vert.bg.x1" :y1="vert.bg.y1" :x2="vert.bg.x2" :y2="vert.bg.y2" />
+                <!-- ticks -->
+                <line v-for="(l, i) in vert.tickLines" :key="`v-tick-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
+                <!-- thumb -->
+                <line :x1="vert.thumb.x1" :y1="vert.thumb.y1" :x2="vert.thumb.x2" :y2="vert.thumb.y2" />
+                <line :x1="vert.thumb.x2" :y1="vert.thumb.y2" :x2="vert.thumb.x3" :y2="vert.thumb.y3" />
+                <line :x1="vert.thumb.x3" :y1="vert.thumb.y3" :x2="vert.thumb.x1" :y2="vert.thumb.y1" />
+            </template>
 
-      <!-- Horizontal -->
-      <template v-else>
-        <!-- left spin -->
-        <line v-for="(l, i) in horz.leftSpin" :key="`h-ls-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
-        <!-- right spin -->
-        <line v-for="(l, i) in horz.rightSpin" :key="`h-rs-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
-        <!-- background line -->
-        <line stroke-width="0.008" :x1="horz.bg.x1" :y1="horz.bg.y1" :x2="horz.bg.x2" :y2="horz.bg.y2" />
-        <!-- ticks -->
-        <line v-for="(l, i) in horz.tickLines" :key="`h-tick-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
-        <!-- thumb -->
-        <line :x1="horz.thumb.x1" :y1="horz.thumb.y1" :x2="horz.thumb.x2" :y2="horz.thumb.y2" />
-        <line :x1="horz.thumb.x2" :y1="horz.thumb.y2" :x2="horz.thumb.x3" :y2="horz.thumb.y2" />
-        <line :x1="horz.thumb.x3" :y1="horz.thumb.y2" :x2="horz.thumb.x1" :y2="horz.thumb.y1" />
-      </template>
-    </g>
-  </svg>
+            <!-- Horizontal -->
+            <template v-else>
+                <!-- left spin -->
+                <line v-for="(l, i) in horz.leftSpin" :key="`h-ls-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
+                <!-- right spin -->
+                <line v-for="(l, i) in horz.rightSpin" :key="`h-rs-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
+                <!-- background line -->
+                <line stroke-width="0.008" :x1="horz.bg.x1" :y1="horz.bg.y1" :x2="horz.bg.x2" :y2="horz.bg.y2" />
+                <!-- ticks -->
+                <line v-for="(l, i) in horz.tickLines" :key="`h-tick-${i}`" :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2" />
+                <!-- thumb -->
+                <line :x1="horz.thumb.x1" :y1="horz.thumb.y1" :x2="horz.thumb.x2" :y2="horz.thumb.y2" />
+                <line :x1="horz.thumb.x2" :y1="horz.thumb.y2" :x2="horz.thumb.x3" :y2="horz.thumb.y2" />
+                <line :x1="horz.thumb.x3" :y1="horz.thumb.y2" :x2="horz.thumb.x1" :y2="horz.thumb.y1" />
+            </template>
+        </g>
+    </svg>
 </template>

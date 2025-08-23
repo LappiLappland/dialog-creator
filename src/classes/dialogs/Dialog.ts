@@ -12,6 +12,6 @@ export default class Dialog {
         this.className = 'LL_dialog';
         this.idd = -1;
         this.movingEnable = false;
-        this.debugBackground = 'rgba(144, 161, 185, 1)';
+        this.debugBackground = 'rgba(145, 155, 175, 1)';
     }
 }

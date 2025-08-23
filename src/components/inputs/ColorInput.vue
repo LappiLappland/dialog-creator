@@ -13,7 +13,7 @@ function handleInput(color: string) {
 </script>
 
 <template>
-    <div class="flex items-center">
+    <div class="color-input">
         <ColorPicker
             format="rgb"
             shape="square"
@@ -24,10 +24,21 @@ function handleInput(color: string) {
             picker-type="chrome"
             :debounce="0"
         />
-        <span class="text-xs text-gray-500"
-        >
+        <span class="color-input__value">
             {{ colorToOsuus(modelValue) }}
         </span>
     </div>
-
 </template>
+
+<style>
+.color-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.color-input__value {
+    font-size: 0.75rem;
+    color: rgb(var(--text-on-main-secondary));
+}
+</style>

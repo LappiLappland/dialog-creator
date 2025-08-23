@@ -21,35 +21,65 @@ function handleInput(e: Event, type: keyof DialogStyle) {
 </script>
 
 <template>
-    <div class="border border-gray-200 rounded-lg px-4 py-3">
+    <div class="style-input">
         <select
         v-if="payload.position.length > 0"
-        class="mb-1 w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+        class="style-input__select style-input__select-position"
         :value="modelValue.position"
         @input="handleInput($event, 'position')"
         >
             <option v-for="option in payload.position"
             :value="option.value"
             :key="option.value"
-            class="text-gray-900"
+            class="style-input__option"
             >
                 {{ option.text }}
             </option>
         </select>
         <select
         v-if="payload.type.length > 0"
-        class="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+        class="style-input__select"
         :value="modelValue.type"
         @input="handleInput($event, 'type')"
         >
             <option v-for="option in payload.type"
             :value="option.value"
             :key="option.value"
-            class="text-gray-900"
+            class="style-input__option"
             >
                 {{ option.text }}
             </option>
         </select>
     </div>
-
 </template>
+
+<style>
+.style-input {
+    border: 1px solid rgb(var(--border-main));
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.style-input__select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid rgb(var(--border-main));
+    border-radius: 0.375rem;
+    background-color: rgb(var(--bg-main));
+    color: rgb(var(--text-on-main));
+    transition: all 200ms ease;
+}
+
+.style-input__select:focus {
+    border-color: transparent;
+}
+
+.style-input__select-position {
+    margin-bottom: 0.25rem;
+}
+
+.style-input__option {
+    color: rgb(var(--text-on-main));
+}
+</style>

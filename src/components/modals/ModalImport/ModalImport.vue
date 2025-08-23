@@ -96,10 +96,10 @@ function handleClassSelected(id: string) {
 </script>
 
 <template>
-    <div class="flex justify-center items-center h-screen w-screen"
+    <div class="modal-import"
     @click="(e) => {if (e.target === e.currentTarget) {$emit('importDone')}}"
     >
-        <div class="shadow-2xl bg-white rounded-xl px-3 py-2 flex flex-col justify-center items-center">
+        <div class="modal-import__container">
             <ImportStepUpload
             v-if="currentStep === ModalImportStep.UPLOAD"
             @accepted="handleFirstStepDone"
@@ -118,3 +118,27 @@ function handleClassSelected(id: string) {
         </div>
     </div>
 </template>
+
+<style>
+.modal-import {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-import__container {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    background-color: rgb(var(--bg-main));
+    border-radius: 0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+</style>

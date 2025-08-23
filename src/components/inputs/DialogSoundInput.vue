@@ -59,56 +59,50 @@ function updateBox(e: Event, type: keyof DialogSound) {
 </script>
 
 <template>
-    <fieldset class="border border-gray-200 rounded-lg px-4 py-3">
-        <div class="flex flex-col gap-0.5">
-            <div
-                class="flex items-center gap-2"
-            >
-                <label class="text-sm font-medium text-gray-600">
+    <fieldset class="sound-input">
+        <div class="sound-input__fields">
+            <div class="sound-input__field">
+                <label class="sound-input__label">
                 File:
                 </label>
                 <input
                 :class="[
-                'w-full px-1 py-1.5 text-sm border rounded-md focus:ring-2 outline-none transition',
+                'sound-input__control',
                 hasError['file']
-                    ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                    ? 'sound-input__control_error'
+                    : 'sound-input__control_default'
                 ]"
                 :value="sound['file']"
                 @input="updateBox($event, 'file')"
                 type="text"
                 />
             </div>
-            <div
-                class="flex items-center gap-2"
-            >
-                <label class="text-sm font-medium text-gray-600">
+            <div class="sound-input__field">
+                <label class="sound-input__label">
                 Volume:
                 </label>
                 <input
                 :class="[
-                'w-full px-1 py-1.5 text-sm border rounded-md focus:ring-2 outline-none transition',
+                'sound-input__control',
                 hasError['volume']
-                    ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                    ? 'sound-input__control_error'
+                    : 'sound-input__control_default'
                 ]"
                 :value="sound['volume']"
                 @input="updateBox($event, 'volume')"
                 type="text"
                 />
             </div>
-            <div
-                class="flex items-center gap-2"
-            >
-                <label class="text-sm font-medium text-gray-600">
+            <div class="sound-input__field">
+                <label class="sound-input__label">
                 Pitch:
                 </label>
                 <input
                 :class="[
-                'w-full px-1 py-1.5 text-sm border rounded-md focus:ring-2 outline-none transition',
+                'sound-input__control',
                 hasError['pitch']
-                    ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                    ? 'sound-input__control_error'
+                    : 'sound-input__control_default'
                 ]"
                 :value="sound['pitch']"
                 @input="updateBox($event, 'pitch')"
@@ -116,6 +110,62 @@ function updateBox(e: Event, type: keyof DialogSound) {
                 />
             </div>
         </div>
-
     </fieldset>
 </template>
+
+<style>
+.sound-input {
+    border: 1px solid rgb(var(--border-main));
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.sound-input__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.sound-input__field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sound-input__label {
+    font-size: 0.875rem;
+    font-weight: var(--fw-medium);
+    color: rgb(var(--text-on-main-secondary));
+    min-width: 0;
+}
+
+.sound-input__control {
+    width: 100%;
+    padding: 0.375rem 0.25rem;
+    font-size: 0.875rem;
+    border: 1px solid;
+    border-radius: 0.375rem;
+    transition: all 200ms ease;
+    color: rgb(var(--text-on-main));
+    background-color: rgb(var(--bg-main));
+    outline: none;
+}
+
+.sound-input__control_default {
+    border-color: rgb(var(--border-main));
+}
+
+.sound-input__control_default:focus {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    border-color: rgb(var(--border-selected));
+}
+
+.sound-input__control_error {
+    border-color: rgb(var(--border-error));
+}
+
+.sound-input__control_error:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
+    border-color: rgb(var(--border-error));
+}
+</style>

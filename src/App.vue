@@ -24,19 +24,13 @@ useGlobalHotkeys(preventGlobalHotkeys.value);
 </script>
 
 <template>
-    <div class="bg-gray-100 w-screen h-screen flex flex-col justify-center items-center">
+    <div class="main">
         <ActionsBar />
-        <div class="grid w-full h-full grid-cols-[15%_auto_25%] grid-rows-1
-        bg-white shadow-md rounded-lg overflow-hidden
-        ">
-            <LeftBar
-                class="border-r border-gray-200 bg-gray-50 px-2 py-1"
-            />
+        <div class="main__layout-grid">
+            <LeftBar />
 
-            <div class="grid grid-rows-[auto_1fr] border-b border-gray-200">
-                <TopBar
-                class="border-b border-gray-200 bg-gray-50 p-2"
-                />
+            <div class="main__window-grid">
+                <TopBar />
                 <VisualWindow
                 v-if="!store.showCode"
                 />
@@ -45,14 +39,36 @@ useGlobalHotkeys(preventGlobalHotkeys.value);
                 />
             </div>
 
-            <RightBar
-            class="border-l border-gray-200 bg-gray-50 py-1"
-            />
+            <RightBar />
         </div>
     </div>
     <ModalsContainer />
 </template>
 
-<style scoped>
+<style>
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(var(--bg-main));
+}
+
+.main__layout-grid {
+    display: grid;
+    width: 100%;
+    flex-grow: 1;
+    grid-template-columns: 15% auto 25%;
+    grid-template-rows: 1fr;
+}
+
+.main__window-grid {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+}
 
 </style>

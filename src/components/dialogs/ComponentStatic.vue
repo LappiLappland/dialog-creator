@@ -34,7 +34,7 @@ const fontFamily = computed(() => {
 <template>
     <div
     v-if="props.dialog.style.type !== StyleType.FRAME"
-    class="h-full relative text-nowrap bg-blend-multiply"
+    class="static-component"
     :class="[props.dialog.extraClass]"
     :style="[{
         'background-color': props.dialog.colorBackground,
@@ -52,6 +52,7 @@ const fontFamily = computed(() => {
         </span>
         <svg
         v-if="dialog.style.type === StyleType.LINE"
+        class="static-component__line"
         width="100%"
         height="100%"
         >
@@ -67,7 +68,7 @@ const fontFamily = computed(() => {
     </div>
     <fieldset
     v-else
-    class="h-full relative text-nowrap bg-blend-multiply"
+    class="static-component static-component--frame"
     :class="[props.dialog.extraClass]"
     :style="[{
         'background-color': 'transparent',
@@ -86,3 +87,25 @@ const fontFamily = computed(() => {
         </legend>
     </fieldset>
 </template>
+
+<style>
+.static-component {
+    height: 100%;
+    position: relative;
+    white-space: nowrap;
+    background-blend-mode: multiply;
+    user-select: none;
+}
+
+.static-component__line {
+    width: 100%;
+    height: 100%;
+}
+
+.static-component--frame {
+    height: 100%;
+    position: relative;
+    white-space: nowrap;
+    background-blend-mode: multiply;
+}
+</style>

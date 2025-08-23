@@ -21,25 +21,25 @@ const meta = computed(() => {
 </script>
 
 <template>
-    <div class="h-full flex flex-col">
-        <h2 class="text-lg font-semibold text-gray-800 text-center px-2">
+    <div class="right-bar">
+        <h2 class="right-bar__title">
             Properties
         </h2>
-        <h2 class="text-md font-semibold text-gray-600 mb-2 text-center px-2">
+        <h2 class="right-bar__subtitle">
             {{ item?.className }}
         </h2>
         <form v-if="meta && item"
-            class="overflow-auto grow px-2"
+            class="right-bar__form"
             @focusin="setPreventGlobalHotkeys(true)"
             @focusout="setPreventGlobalHotkeys(false)"
         >
             <div
             v-for="([prop, spec]) in Object.entries(meta)"
             :key="prop + '_' + item.id"
-            class="mb-2.5"
+            class="right-bar__field"
             >
                 <label v-if="spec.editable" :for="prop"
-                  class="block mb-2 text-sm font-semibold text-gray-700"
+                  class="right-bar__label"
                 >
                 {{ spec.label }}
                 </label>
@@ -58,3 +58,57 @@ const meta = computed(() => {
         </form>
     </div>
 </template>
+
+<style>
+.right-bar {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgb(var(--border-main));
+    padding-inline: 4px;
+    padding-block: 8px;
+    background-color: rgb(var(--bg-secondary));
+}
+
+.right-bar__title {
+    font-size: 1.125rem;
+    font-weight: var(--fw-semi-bold);
+    color: rgb(var(--text-on-main));
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.right-bar__subtitle {
+    font-size: 1rem;
+    font-weight: var(--fw-semi-bold);
+    color: rgb(var(--text-on-main-secondary));
+    margin-bottom: 0.5rem;
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.right-bar__form {
+    flex: 1 1 0;
+    overflow-y: auto;
+    padding-inline: 0.5rem;
+}
+
+.right-bar__field {
+    margin-bottom: 0.625rem;
+}
+
+.right-bar__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: var(--fw-semi-bold);
+    color: rgb(var(--text-on-main));
+}
+
+.right-bar__input {
+    width: 100%;
+}
+</style>

@@ -62,22 +62,22 @@ function updateBox(e: Event, type: keyof DialogBox) {
 </script>
 
 <template>
-    <fieldset class="border border-gray-200 rounded-lg px-4 py-3">
-        <div class="grid grid-cols-2 gap-3">
+    <fieldset class="box-input">
+        <div class="box-input__grid">
             <div
                 v-for="dim in dimensions"
                 :key="dim"
-                class="flex items-center gap-2"
+                class="box-input__field"
             >
-                <label class="text-sm font-medium text-gray-600 w-4 uppercase">
-                {{ dim }}:
+                <label class="box-input__label">
+                    {{ dim }}:
                 </label>
                 <input
                 :class="[
-                'w-full px-1 py-1.5 text-sm border rounded-md focus:ring-2 outline-none transition',
+                'box-input__control',
                 hasError[dim]
-                    ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-                    : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                    ? 'box-input__control_error'
+                    : 'box-input__control_default'
                 ]"
                 :value="box[dim]"
                 @input="updateBox($event, dim)"
@@ -87,3 +87,61 @@ function updateBox(e: Event, type: keyof DialogBox) {
         </div>
     </fieldset>
 </template>
+
+<style>
+.box-input {
+    border: 1px solid rgb(var(--border-main));
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.box-input__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.box-input__field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.box-input__label {
+    font-size: 0.875rem;
+    font-weight: var(--fw-medium);
+    color: rgb(var(--text-on-main-secondary));
+    width: 1rem;
+    text-transform: uppercase;
+}
+
+.box-input__control {
+    width: 100%;
+    padding: 0.375rem 0.25rem;
+    font-size: 0.875rem;
+    border: 1px solid;
+    border-radius: 0.375rem;
+    transition: all 200ms ease;
+    outline: none;
+    color: rgb(var(--text-on-main));
+    background-color: rgb(var(--bg-main));
+}
+
+.box-input__control_default {
+    border-color: rgb(var(--border-main));
+}
+
+.box-input__control_default:focus {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    border-color: rgb(var(--border-selected));
+}
+
+.box-input__control_error {
+    border-color: rgb(var(--border-error));
+}
+
+.box-input__control_error:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
+    border-color: rgb(var(--border-error));
+}
+</style>

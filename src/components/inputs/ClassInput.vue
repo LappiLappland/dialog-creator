@@ -40,12 +40,50 @@ function handleInput(e: Event) {
 <template>
   <input
     :class="[
-      'w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 transition duration-200 placeholder-gray-400 text-gray-700',
+      'class-input',
       hasError
-        ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-        : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+        ? 'class-input_error'
+        : 'class-input_default'
     ]"
     :value="inputValue"
     @input="handleInput"
   />
 </template>
+
+<style>
+.class-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(var(--border-main));
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 200ms ease;
+    color: rgb(var(--text-on-main));
+    background-color: rgb(var(--bg-main));
+}
+
+.class-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.class-input_default {
+    border-color: rgb(var(--border-main));
+}
+
+.class-input_default:focus {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    border-color: rgb(var(--border-selected));
+}
+
+.class-input_error {
+    border-color: rgb(var(--border-error));
+    background-color: rgb(var(--bg-error));
+    color: rgb(var(--text-on-error))
+}
+
+.class-input_error:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
+    border-color: rgb(var(--border-error));
+}
+</style>

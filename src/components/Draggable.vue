@@ -242,11 +242,12 @@ onUnmounted(() => {
         height: numToPercent(dialogItem.box.h),
         cursor: usedCursorType,
     }"
-    class="absolute"
+    class="draggable-item"
     :class="{
-        'hover:shadow-lg hover:ring-1 hover:ring-gray-300': currentState === 'default',
-        'shadow-lg ring-2 ring-blue-500/30': currentState === 'selected' || currentState === 'resizing',
-        'shadow-xl ring-2 ring-blue-500/50 opacity-90 z-10': currentState === 'dragging',
+        'draggable-item_default': currentState === 'default',
+        'draggable-item_selected': currentState === 'selected',
+        'draggable-item_resizing': currentState === 'resizing',
+        'draggable-item_dragging': currentState === 'dragging',
     }"
     @mousedown="handleMouseDown"
     @mousemove="handleCursor"
@@ -254,3 +255,27 @@ onUnmounted(() => {
         <slot></slot>
     </div>
 </template>
+
+<style>
+.draggable-item {
+    position: absolute;
+}
+
+.draggable-item_default:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 0 1px rgb(var(--border-main));
+}
+
+.draggable-item_selected,
+.draggable-item_resizing {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 0 2px rgba(var(--border-hover), 0.3);
+}
+
+.draggable-item_dragging {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 0 2px rgba(var(--border-hover), 0.5);
+    opacity: 0.9;
+    z-index: 10;
+}
+</style>
