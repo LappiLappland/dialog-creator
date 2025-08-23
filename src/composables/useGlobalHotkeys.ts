@@ -1,4 +1,4 @@
-import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, onUnmounted, ref, type Ref } from 'vue';
 import { useDialogStore } from '../stores/dialogStore';
 import DeleteCmd from '../classes/commands/DeleteCmd';
 import DuplicateCmd from '../classes/commands/DuplicateCmd';
@@ -106,13 +106,22 @@ export default function useGlobalHotkeys(preventGlobalHotkeys: Ref<boolean>) {
         moveSelected(e);
     }
 
+    function handleKeyDown(e: KeyboardEvent) {
+        activeKeys.value.add(e.code);
+        handleHotkeys(e);
+    }
+
+    function handleKeyUp(e: KeyboardEvent) {
+        activeKeys.value.delete(e.code);
+    }
+
     onMounted(() => {
-        document.addEventListener('keydown', (e) => {
-            activeKeys.value.add(e.code);
-            handleHotkeys(e);
-        });
-        document.addEventListener('keyup', (e) => {
-            activeKeys.value.delete(e.code);
-        });
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('keyup', handleKeyUp);
+    });
+
+    onUnmounted(() => {
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('keyup', handleKeyUp);
     });
 }
