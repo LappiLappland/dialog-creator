@@ -162,6 +162,8 @@ function updateBox(e: Event, type: keyof DialogSound) {
 
 .sound-input__control_error {
     border-color: rgb(var(--border-error));
+    background-color: rgb(var(--bg-error));
+    color: rgb(var(--text-on-error))
 }
 
 .sound-input__control_error:focus {

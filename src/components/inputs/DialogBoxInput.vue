@@ -138,6 +138,8 @@ function updateBox(e: Event, type: keyof DialogBox) {
 
 .box-input__control_error {
     border-color: rgb(var(--border-error));
+    background-color: rgb(var(--bg-error));
+    color: rgb(var(--text-on-error))
 }
 
 .box-input__control_error:focus {

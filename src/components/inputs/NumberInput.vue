@@ -78,6 +78,8 @@ function handleInput(e: Event) {
 
 .number-input_error {
     border-color: rgb(var(--border-error));
+    background-color: rgb(var(--bg-error));
+    color: rgb(var(--text-on-error))
 }
 
 .number-input_error:focus {
