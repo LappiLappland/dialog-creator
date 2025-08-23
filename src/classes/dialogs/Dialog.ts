@@ -1,4 +1,5 @@
 import type { ColorDialog } from '../../types/Dialog';
+import { osuusToColor } from '../../utils/colorConverters';
 
 export default class Dialog {
     public id: string;
@@ -12,6 +13,6 @@ export default class Dialog {
         this.className = 'LL_dialog';
         this.idd = -1;
         this.movingEnable = false;
-        this.debugBackground = 'rgba(145, 155, 175, 1)';
+        this.debugBackground = osuusToColor(0.569, 0.608, 0.686, 1);
     }
 }

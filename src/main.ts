@@ -1,9 +1,7 @@
 import { createApp } from 'vue';
 import './style.css';
 import App from './App.vue';
-import 'vue3-colorpicker/style.css';
 import { createPinia } from 'pinia';
-import Vue3ColorPicker from 'vue3-colorpicker';
 import 'vue-final-modal/style.css';
 import hljs from 'highlight.js/lib/core';
 import cpp from 'highlight.js/lib/languages/cpp';
@@ -17,6 +15,5 @@ const app = createApp(App);
 
 app.use(createVfm());
 app.use(pinia);
-app.use(Vue3ColorPicker);
 app.use(hljsVuePlugin);
 app.mount('#app');
