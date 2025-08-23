@@ -19,7 +19,7 @@ function setPreventGlobalHotkeys(value: boolean) {
 }
 provide(setPreventGlobalHotkeysKey, setPreventGlobalHotkeys);
 
-useGlobalHotkeys(preventGlobalHotkeys.value);
+useGlobalHotkeys(preventGlobalHotkeys);
 
 </script>
 

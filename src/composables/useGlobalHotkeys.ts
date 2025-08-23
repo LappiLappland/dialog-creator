@@ -1,10 +1,10 @@
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 import { useDialogStore } from '../stores/dialogStore';
 import DeleteCmd from '../classes/commands/DeleteCmd';
 import DuplicateCmd from '../classes/commands/DuplicateCmd';
 import CommandDispatcher from '../classes/CommandDispatcher';
 
-export default function useGlobalHotkeys(preventGlobalHotkeys: boolean) {
+export default function useGlobalHotkeys(preventGlobalHotkeys: Ref<boolean>) {
     const store = useDialogStore();
 
     const activeKeys = ref(new Set<string>());
@@ -76,6 +76,8 @@ export default function useGlobalHotkeys(preventGlobalHotkeys: boolean) {
     }
 
     function handleHotkeys(e: KeyboardEvent) {
+        if (preventGlobalHotkeys.value) return;
+
         switch (e.code) {
             case 'Delete':
                 e.preventDefault();
@@ -107,9 +109,7 @@ export default function useGlobalHotkeys(preventGlobalHotkeys: boolean) {
     onMounted(() => {
         document.addEventListener('keydown', (e) => {
             activeKeys.value.add(e.code);
-            if (!preventGlobalHotkeys) {
-                handleHotkeys(e);
-            };
+            handleHotkeys(e);
         });
         document.addEventListener('keyup', (e) => {
             activeKeys.value.delete(e.code);
