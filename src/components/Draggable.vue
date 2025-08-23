@@ -259,6 +259,7 @@ onUnmounted(() => {
 <style>
 .draggable-item {
     position: absolute;
+    overflow: hidden;
 }
 
 .draggable-item_default:hover {
