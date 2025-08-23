@@ -136,7 +136,6 @@ function updateBox(e: Event, type: keyof DialogSound) {
     font-size: 0.875rem;
     font-weight: var(--fw-medium);
     color: rgb(var(--text-on-main-secondary));
-    min-width: 0;
 }
 
 .sound-input__control {
