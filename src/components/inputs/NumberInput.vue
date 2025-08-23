@@ -12,7 +12,9 @@ const inputValue = ref(props.modelValue.toString());
 const isInt = props.payload?.isInt;
 
 watch(() => props.modelValue, () => {
-    inputValue.value = props.modelValue.toString();
+    if (Number.parseFloat(inputValue.value) !== props.modelValue) {
+        inputValue.value = props.modelValue.toString();
+    }
     hasError.value = false;
 });
 
