@@ -176,5 +176,25 @@ export const useDialogStore = defineStore('dialog', () => {
         return !duplicateClassNames.value.has(className.toLowerCase());
     }
 
-    return { showCode, mainDialog, selectedItem, dialogItems, dialogItemsArray, windowBox, patchItem, patchItemHistory, resetState, replaceState, switchWindowDisplay, setSelectedItem, getItem, deleteItem, addItem, changeCoord, changeBox, setWindowBox, isClassNameUnique };
+    return {
+        showCode,
+        mainDialog,
+        selectedItem,
+        dialogItems,
+        dialogItemsArray,
+        windowBox,
+        changeCoord,
+        changeBox,
+        patchItem,
+        patchItemHistory,
+        getItem,
+        deleteItem,
+        addItem,
+        setSelectedItem,
+        resetState,
+        replaceState,
+        isClassNameUnique,
+        switchWindowDisplay,
+        setWindowBox,
+    };
 });
