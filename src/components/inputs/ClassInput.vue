@@ -14,6 +14,8 @@ const inputValue = ref(props.modelValue.toString());
 watch(() => props.modelValue, () => {
     inputValue.value = props.modelValue;
     hasError.value = !store.isClassNameUnique(props.modelValue);
+}, {
+    immediate: true,
 });
 
 function handleInput(e: Event) {
