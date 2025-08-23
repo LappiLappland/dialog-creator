@@ -9,6 +9,7 @@ defineEmits<{ 'update:modelValue': [v: string] }>();
     rows="2"
     :value="modelValue"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    autocomplete="off"
     ></textarea>
 </template>
 

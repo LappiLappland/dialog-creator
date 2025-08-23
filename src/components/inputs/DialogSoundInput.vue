@@ -75,6 +75,7 @@ function updateBox(e: Event, type: keyof DialogSound) {
                 :value="sound['file']"
                 @input="updateBox($event, 'file')"
                 type="text"
+                autocomplete="off"
                 />
             </div>
             <div class="sound-input__field">
@@ -91,6 +92,7 @@ function updateBox(e: Event, type: keyof DialogSound) {
                 :value="sound['volume']"
                 @input="updateBox($event, 'volume')"
                 type="text"
+                autocomplete="off"
                 />
             </div>
             <div class="sound-input__field">
@@ -107,6 +109,7 @@ function updateBox(e: Event, type: keyof DialogSound) {
                 :value="sound['pitch']"
                 @input="updateBox($event, 'pitch')"
                 type="text"
+                autocomplete="off"
                 />
             </div>
         </div>

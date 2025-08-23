@@ -82,6 +82,7 @@ function updateBox(e: Event, type: keyof DialogBox) {
                 :value="box[dim]"
                 @input="updateBox($event, dim)"
                 type="text"
+                autocomplete="off"
                 />
             </div>
         </div>

@@ -47,6 +47,7 @@ function handleInput(e: Event) {
     ]"
     :value="inputValue"
     @input="handleInput"
+    autocomplete="off"
     />
 </template>
 
