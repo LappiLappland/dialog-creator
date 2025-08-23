@@ -59,9 +59,12 @@ export function exportToExt(dialog: Dialog, items: DialogItem[]): string {
                 case 'string-autocomplete':
                 case 'class':
                 case 'string':
-                case 'enum':
-                    sqf = `"${value}"`;
+                case 'enum': {
+                    const raw = (value as string).toString();
+                    sqf = `"${raw.replace(/"/g, '""')}"`;
                     break;
+                }
+
                 case 'number':
                     if (typeof value !== 'number') break;
                     sqf = String(roundToPrecision(value, roundFLoatTo));
