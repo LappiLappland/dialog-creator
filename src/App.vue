@@ -66,8 +66,8 @@ useGlobalHotkeys(preventGlobalHotkeys.value);
 }
 
 .main__window-grid {
-    display: grid;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
     height: 100%;
 }
 
