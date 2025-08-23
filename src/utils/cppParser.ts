@@ -60,13 +60,22 @@ export function parseCpp(code: string): ParsedOFPClasses {
                 while (pos < code.length && !/[,}]/.test(peek())) {
                     if (peek() === '"') {
                         consume(); // opening "
-                        while (pos < code.length && peek() !== '"') {
-                            if (peek() === '\\') {
+                        while (pos < code.length) {
+                            if (peek() === '"') {
+                                consume();
+                                if (peek() === '"') {
+                                    token += '"';
+                                    consume();
+                                }
+                                else {
+                                    // closing quote
+                                    break;
+                                }
+                            }
+                            else {
                                 token += consume();
                             }
-                            token += consume();
                         }
-                        consume(); // closing "
                     }
                     else {
                         token += consume();
@@ -86,14 +95,23 @@ export function parseCpp(code: string): ParsedOFPClasses {
         // String literal
         if (peek() === '"') {
             let val = '';
-            consume(); // '"'
-            while (pos < code.length && peek() !== '"') {
-                if (peek() === '\\') {
+            consume(); // opening "
+            while (pos < code.length) {
+                if (peek() === '"') {
+                    consume();
+                    if (peek() === '"') {
+                        val += '"';
+                        consume();
+                    }
+                    else {
+                        // closing quote
+                        break;
+                    }
+                }
+                else {
                     val += consume();
                 }
-                val += consume();
             }
-            consume(); // Closing '"'
             return val;
         }
 
