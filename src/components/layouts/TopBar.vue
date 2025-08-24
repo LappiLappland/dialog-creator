@@ -38,6 +38,7 @@ const buttonsList: ButtonOption[] = [
     { title: 'Text', action: dialogFactory(DialogItem, {
         colorText: osuusToColor(1, 1, 1, 0.8),
         colorBackground: osuusToColor(1, 1, 1, 0),
+        style: { position: StylePosition.CENTER, type: StyleType.SINGLE },
         text: 'Text',
     }) },
     { title: 'Button', action: () => new DialogButton('') },
