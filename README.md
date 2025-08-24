@@ -1,14 +1,14 @@
 # Lappi's Dialog Editor  
 *Visual GUI Builder for Arma: Cold War Assault (Operation Flashpoint)*  
 
-[![Demo](https://img.shields.io/badge/Web-Live_Editor-22C55E?style=for-the-badge&logo=vercel)](https://demo.yoursite.com) 
+[![Demo](https://img.shields.io/badge/Web-Live_Editor-22C55E?style=for-the-badge&logo=vercel)](https://lappilappland.github.io/dialog-editor/) 
 ![Tool - ARMA CWA](https://img.shields.io/badge/Tool-ARMA_CWA_GUI_Editor-2B337D?style=for-the-badge&logo=bohemiainteractive&logoColor=white)
 
 ![Preview](https://github.com/user-attachments/assets/c6c2152f-87d0-49e2-8a1d-36977173df0d)
 
 > Create, import and export Arma Cold War Assault GUIs (dialogs) live in editor without touching config files. Right in your browser!
 
-[Open page to start editing](https://lappilappland.github.io/dialog-creator/)
+[Open page to start editing](https://lappilappland.github.io/dialog-editor/)
 
 ---
 
@@ -73,7 +73,7 @@ Report dialog code
 ---
 
 ## 🚀 Getting Started  
-1. Visit the [Editor page](https://lappilappland.github.io/dialog-creator/)
+1. Visit the [Editor page](https://lappilappland.github.io/dialog-editor/)
 2. Start from scratch or **import existing dialog**
 3. Use buttons on top to place new elements
 4. Edit element properties using right window
